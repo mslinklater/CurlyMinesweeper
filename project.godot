@@ -11,11 +11,14 @@ config_version=4
 [application]
 
 config/name="Curly Minesweeper"
+run/main_scene="res://scenes/boot.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 GameRoot="*res://scripts/GameRoot.gd"
+Log="*res://scripts/Log.gd"
+GameConfig="*res://scripts/GameConfig.gd"
 
 [gui]
 

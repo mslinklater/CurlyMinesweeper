@@ -1,16 +1,17 @@
 extends Node
 
+var gameplayScene: PackedScene
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Log.log(Log.Level.Verbose, "GameRoot _ready")
+	gameplayScene = load("res://scenes/gameplay.tscn")
+	
+func initialise():
+	Log.log(Log.Level.Verbose, "GameRoot initialise")
+	GameConfig.difficulty = GameConfig.Difficulty.Easy
+	GameConfig.levelNum = 1
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func startGameplay():
+	var gameplaySceneInstance = gameplayScene.instance()
+	get_tree().get_root().add_child(gameplaySceneInstance)
+	
